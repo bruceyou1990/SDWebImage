@@ -10,6 +10,8 @@
 
 typedef void(^SDWebImageNoParamsBlock)(void);
 typedef NSString * SDWebImageContextOption NS_EXTENSIBLE_STRING_ENUM;
+//---------> Bruce You [源码解读Source code Interpretation][SDWebImageContext]{SDWebImageContext 的定义}
+
 typedef NSDictionary<SDWebImageContextOption, id> SDWebImageContext;
 typedef NSMutableDictionary<SDWebImageContextOption, id> SDWebImageMutableContext;
 

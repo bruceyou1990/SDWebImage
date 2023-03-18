@@ -239,7 +239,9 @@ BOOL SDWebImageDownloaderOperationGetCompleted(id<SDWebImageDownloaderOperation>
         } else {
             self.dataTask.priority = NSURLSessionTaskPriorityDefault;
         }
-        [self.dataTask resume];
+        // --------> Bruce You [源码解读Source code Interpretation][requestImageWithURL]{resume发起 调用 NSURLSessionDataTask 实例的 resume 方法，发起网络请求}
+
+        [self.dataTask resume];//
         NSArray<SDWebImageDownloaderOperationToken *> *tokens;
         @synchronized (self) {
             tokens = [self.callbackTokens copy];

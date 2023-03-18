@@ -208,6 +208,7 @@ void SDWebImageDownloaderOperationSetCompleted(id<SDWebImageDownloaderOperation>
                                                  completed:(SDWebImageDownloaderCompletedBlock)completedBlock {
     return [self downloadImageWithURL:url options:options context:nil progress:progressBlock completed:completedBlock];
 }
+//---------> Bruce You [源码解读Source code Interpretation][requestImageWithURL]{开始下载}
 
 - (nullable SDWebImageDownloadToken *)downloadImageWithURL:(nullable NSURL *)url
                                                    options:(SDWebImageDownloaderOptions)options
@@ -245,6 +246,7 @@ void SDWebImageDownloaderOperationSetCompleted(id<SDWebImageDownloaderOperation>
         shouldNotReuseOperation = YES;
     }
     if (shouldNotReuseOperation) {
+        //创建下载
         operation = [self createDownloaderOperationWithUrl:url options:options context:context];
         if (!operation) {
             SD_UNLOCK(_operationsLock);
@@ -298,6 +300,7 @@ void SDWebImageDownloaderOperationSetCompleted(id<SDWebImageDownloaderOperation>
     
     return options;
 }
+//---------> Bruce You [源码解读Source code Interpretation][requestImageWithURL]{createDownloaderOperationWithUrl下载}
 
 - (nullable NSOperation<SDWebImageDownloaderOperation> *)createDownloaderOperationWithUrl:(nonnull NSURL *)url
                                                                                   options:(SDWebImageDownloaderOptions)options
@@ -624,7 +627,7 @@ didReceiveResponse:(NSURLResponse *)response
     // Always pass YES to let URLSession or custom download operation to determine
     return YES;
 }
-
+/// ---------> Bruce You [源码解读Source code Interpretation][2]{真正的从网络去获取图片}
 - (id<SDWebImageOperation>)requestImageWithURL:(NSURL *)url options:(SDWebImageOptions)options context:(SDWebImageContext *)context progress:(SDImageLoaderProgressBlock)progressBlock completed:(SDImageLoaderCompletedBlock)completedBlock {
     UIImage *cachedImage = context[SDWebImageContextLoaderCachedImage];
     

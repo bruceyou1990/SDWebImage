@@ -100,6 +100,7 @@ FOUNDATION_EXPORT void SDImageLoaderSetProgressiveCoder(id<SDWebImageOperation> 
 @required
 /**
  Load the image and image data with the given URL and return the image data. You're responsible for producing the image instance.
+ 使用给定的URL加载图像和图像数据，并返回图像数据。 您负责生成图像实例。
 
  @param url The URL represent the image. Note this may not be a HTTP URL
  @param options A mask to specify options to use for this request

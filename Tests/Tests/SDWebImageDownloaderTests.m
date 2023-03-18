@@ -236,7 +236,8 @@
         }
     }];
     
-    [operation start];
+    [operation start];//测试用例这里发起了一个网络请求
+
     
     [self waitForExpectationsWithCommonTimeout];
 }
